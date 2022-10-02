@@ -15,6 +15,7 @@ class GameViewController: UIViewController {
     var round: Int = 1
     // сумма очков за раунд
     var points: Int = 0
+    lazy var secondViewController = SecondViewController()
     
     //Создание UI-элементов
     let slider: UISlider = {
@@ -101,7 +102,7 @@ class GameViewController: UIViewController {
         print("viewDidDisappear")
     }
     
-    //Настрой расположения UI-элементов на экране
+    //Настройка расположения UI-элементов на экране
     func setUI() {
         view.backgroundColor = UIColor.orange
         
@@ -119,8 +120,8 @@ class GameViewController: UIViewController {
         
         aboutAppButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
         aboutAppButton.leftAnchor.constraint(equalTo: view.rightAnchor, constant: -120).isActive = true
-        aboutAppButton.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        aboutAppButton.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
+        aboutAppButton.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
+        aboutAppButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
     }
     
     //Обработка нажатия кнопки checkButton
@@ -153,10 +154,11 @@ class GameViewController: UIViewController {
     //Обработка нажатия кнопки aboutAppBattun
     @objc func aboutAppBattunPressed(target: UIButton) {
         if target == self.aboutAppButton {
-            let viewController = SecondViewController()
+            //let viewController = SecondViewController()
             //let viewController = storyboard.instantiateViewController(identifier: "SecondViewController")
             //self.show(viewController, sender: self)
-            self.present(viewController, animated: true, completion: nil)
+            //self.present(secondViewController, animated: true, completion: nil)
+            self.navigationController?.pushViewController(secondViewController, animated: true)
         }
     }
 }

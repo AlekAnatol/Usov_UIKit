@@ -9,6 +9,7 @@ import UIKit
 
 class SecondViewController: UIViewController {
     
+    //Создание UI-элементов
     let backToGameButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 300, height: 50))
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -20,6 +21,7 @@ class SecondViewController: UIViewController {
         return button
     }()
     
+    //ViewController live cycle
     override func loadView() {
         super.loadView()
         print("loadView SecondViewController")
@@ -51,16 +53,19 @@ class SecondViewController: UIViewController {
         print("viewDidDisappear SecondViewController")
     }
     
+    //Настройка расположения UI-элементов на экране
     func setUI() {
         view.backgroundColor = UIColor.purple
         backToGameButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         backToGameButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
+    //Обработка нажатия кнопки backToGame
     @objc func backToGameButtonPressed(target: UIButton) {
         //if target.titleLabel?.text == "  Back to game  " {
         if target == self.backToGameButton {
-            self.dismiss(animated: true)
+            //self.dismiss(animated: true)
+            self.navigationController?.popViewController(animated: true)
         }
     }
 }
