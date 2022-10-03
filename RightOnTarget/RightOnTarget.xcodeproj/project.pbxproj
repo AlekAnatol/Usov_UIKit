@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		99AA5B5328EAE41B00A662EE /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA5B5228EAE41B00A662EE /* Game.swift */; };
 		99AE9C3528E5B575008F6977 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AE9C3428E5B575008F6977 /* AppDelegate.swift */; };
 		99AE9C3728E5B575008F6977 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AE9C3628E5B575008F6977 /* SceneDelegate.swift */; };
 		99AE9C3C28E5B575008F6977 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99AE9C3A28E5B575008F6977 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		99AA5B5228EAE41B00A662EE /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		99AE9C3128E5B575008F6977 /* RightOnTarget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RightOnTarget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99AE9C3428E5B575008F6977 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99AE9C3628E5B575008F6977 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		99AA5B5128EAE3F500A662EE /* Мodel */ = {
+			isa = PBXGroup;
+			children = (
+				99AA5B5228EAE41B00A662EE /* Game.swift */,
+			);
+			path = "Мodel";
+			sourceTree = "<group>";
+		};
 		99AE9C2828E5B574008F6977 = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +69,7 @@
 				99AE9C3428E5B575008F6977 /* AppDelegate.swift */,
 				99AE9C3628E5B575008F6977 /* SceneDelegate.swift */,
 				99AE9C4828E5BD3F008F6977 /* GameViewController.swift */,
+				99AA5B5128EAE3F500A662EE /* Мodel */,
 				99AE9C3A28E5B575008F6977 /* Main.storyboard */,
 				99AE9C3D28E5B575008F6977 /* Assets.xcassets */,
 				99AE9C3F28E5B575008F6977 /* LaunchScreen.storyboard */,
@@ -141,6 +152,7 @@
 				99AE9C3528E5B575008F6977 /* AppDelegate.swift in Sources */,
 				99AE9C4928E5BD3F008F6977 /* GameViewController.swift in Sources */,
 				99AE9C3728E5B575008F6977 /* SceneDelegate.swift in Sources */,
+				99AA5B5328EAE41B00A662EE /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,13 +8,8 @@
 import UIKit
 
 class GameViewController: UIViewController {
-    
-    // загаданное число
-    var number: Int = 0
-    // раунд
-    var round: Int = 0
-    // сумма очков за раунд
-    var points: Int = 0
+    //MARK: - Свойства
+    var gameSession: Game!
     
     //Создание UI-элементов
     let slider: UISlider = {
@@ -36,7 +31,7 @@ class GameViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 10
         button.backgroundColor = UIColor.yellow
-        button.setTitle("  Start game  ", for: .normal)
+        button.setTitle(" Check number ", for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
         button.setTitleColor(UIColor.yellow, for: .highlighted)
         return button
@@ -51,16 +46,19 @@ class GameViewController: UIViewController {
         return label
     }()
     
-    //ViewController live cycle
+    //MARK: - ViewController live cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(checkButton)
         view.addSubview(slider)
         view.addSubview(numberLabel)
-        checkButton.addTarget(self, action: #selector(checkButtonPressed), for: .touchUpInside)
+        gameSession = Game(startValue: 1, endValue: 50, rounds: 4)
+        updateLabelWithSecretNumber(newText: String(gameSession.currentSecretValue))
         setUI()
+        checkButton.addTarget(self, action: #selector(checkButtonPressed), for: .touchUpInside)
     }
     
+    //MARK: - Методы
     //Настрой расположения UI-элементов на экране
     func setUI() {
         view.backgroundColor = UIColor.orange
@@ -78,35 +76,36 @@ class GameViewController: UIViewController {
         numberLabel.topAnchor.constraint(equalTo: checkButton.bottomAnchor, constant: 30).isActive = true
     }
     
-    //Обработка нажатия кнопки
+    //Обработка нажатия кнопки checkButton
     @objc func checkButtonPressed(target: UIButton) {
         if target == self.checkButton {
-            if round == 0 {
-                number = Int.random(in: 1...50)
-                numberLabel.text = String(number)
-                checkButton.setTitle("Check Number", for: .normal)
-                round = 1
-                print("Start game, number = \(number)")
-            } else if round < 5 {
-                let userNumber = Int(slider.value.rounded())
-                points += 100 - abs(number - userNumber) * 2
-                round += 1
-                print("points ", points, "round ", round)
-            } else if round == 5 {
-                let userNumber = Int(slider.value.rounded())
-                points += 100 - abs(number - userNumber) * 2
-                slider.value = 25
-                let alert = UIAlertController(title: "Game over",
-                                              message: "Count of points: \(points)",
-                                              preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                alert.addAction(okAction)
-                self.present(alert, animated: true, completion: nil)
-                round = 0
-                points = 0
-                checkButton.setTitle("Start game", for: .normal)
-                print("game over")
+            // Высчитываем очки за раунд
+            gameSession.calculateScore(with: Int(slider.value))
+            // Проверяем, окончена ли игра
+            if gameSession.isGameEnded {
+                showAlertWith(score: gameSession.score)
+                // Начинаем игру заново
+                gameSession.restartGame()
+            } else {
+                gameSession.startNewRound()
+                print("poits \(gameSession.score)")
             }
+            // Обновляем данные о текущем значении загаданного числа
+            updateLabelWithSecretNumber(newText: String(gameSession.currentSecretValue))
         }
+    }
+    
+    // Обновление текста загаданного числа
+    private func updateLabelWithSecretNumber(newText: String ) {
+     numberLabel.text = newText
+    }
+    
+    // Отображение всплывающего окна со счетом
+    private func showAlertWith(score: Int) {
+        let alert = UIAlertController(title: "Игра окончена",
+                                      message: "Вы заработали \(score) очков",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Начать заново", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
