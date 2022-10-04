@@ -52,8 +52,9 @@ class GameViewController: UIViewController {
         view.addSubview(checkButton)
         view.addSubview(slider)
         view.addSubview(numberLabel)
-        gameSession = Game(startValue: 1, endValue: 50, rounds: 4)
-        updateLabelWithSecretNumber(newText: String(gameSession.currentSecretValue))
+        let generator = Generator(startValue: 1, endValue: 50)!
+        gameSession = Game(generator: generator, rounds: 3)
+        updateLabelWithSecretNumber(newText: String(gameSession.currentRound.currentSecretValue))
         setUI()
         checkButton.addTarget(self, action: #selector(checkButtonPressed), for: .touchUpInside)
     }
@@ -80,18 +81,19 @@ class GameViewController: UIViewController {
     @objc func checkButtonPressed(target: UIButton) {
         if target == self.checkButton {
             // Высчитываем очки за раунд
-            gameSession.calculateScore(with: Int(slider.value))
+            gameSession.currentRound.calculateScore(with: Int(slider.value))
             // Проверяем, окончена ли игра
             if gameSession.isGameEnded {
+                //Выводим всплывающее окно с количеством заработанных очков
                 showAlertWith(score: gameSession.score)
                 // Начинаем игру заново
                 gameSession.restartGame()
-            } else {
-                gameSession.startNewRound()
-                print("poits \(gameSession.score)")
+                }  else  {
+                    //Запускаем новый раунд
+                    gameSession.startNewRound()
             }
             // Обновляем данные о текущем значении загаданного числа
-            updateLabelWithSecretNumber(newText: String(gameSession.currentSecretValue))
+            updateLabelWithSecretNumber(newText: String(gameSession.currentRound.currentSecretValue))
         }
     }
     

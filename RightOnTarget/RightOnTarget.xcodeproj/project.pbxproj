@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		99AA5B5328EAE41B00A662EE /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA5B5228EAE41B00A662EE /* Game.swift */; };
+		99AA5B5528EB208300A662EE /* GameRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA5B5428EB208300A662EE /* GameRound.swift */; };
+		99AA5B5728EB20A800A662EE /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA5B5628EB20A800A662EE /* Generator.swift */; };
 		99AE9C3528E5B575008F6977 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AE9C3428E5B575008F6977 /* AppDelegate.swift */; };
 		99AE9C3728E5B575008F6977 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AE9C3628E5B575008F6977 /* SceneDelegate.swift */; };
 		99AE9C3C28E5B575008F6977 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99AE9C3A28E5B575008F6977 /* Main.storyboard */; };
@@ -18,6 +20,8 @@
 
 /* Begin PBXFileReference section */
 		99AA5B5228EAE41B00A662EE /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		99AA5B5428EB208300A662EE /* GameRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRound.swift; sourceTree = "<group>"; };
+		99AA5B5628EB20A800A662EE /* Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
 		99AE9C3128E5B575008F6977 /* RightOnTarget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RightOnTarget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99AE9C3428E5B575008F6977 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99AE9C3628E5B575008F6977 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +47,8 @@
 			isa = PBXGroup;
 			children = (
 				99AA5B5228EAE41B00A662EE /* Game.swift */,
+				99AA5B5428EB208300A662EE /* GameRound.swift */,
+				99AA5B5628EB20A800A662EE /* Generator.swift */,
 			);
 			path = "Мodel";
 			sourceTree = "<group>";
@@ -152,6 +158,8 @@
 				99AE9C3528E5B575008F6977 /* AppDelegate.swift in Sources */,
 				99AE9C4928E5BD3F008F6977 /* GameViewController.swift in Sources */,
 				99AE9C3728E5B575008F6977 /* SceneDelegate.swift in Sources */,
+				99AA5B5728EB20A800A662EE /* Generator.swift in Sources */,
+				99AA5B5528EB208300A662EE /* GameRound.swift in Sources */,
 				99AA5B5328EAE41B00A662EE /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,7 +320,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = asd.RightOnTarget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -341,7 +349,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = asd.RightOnTarget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
