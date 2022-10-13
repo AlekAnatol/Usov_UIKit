@@ -41,3 +41,23 @@ class GameRound: GameRoundProtocol {
         score += 100 - abs(currentSecretValue - value) * 2
     }
 }
+
+class СolorGameRound: GameRoundProtocol {
+    
+    //MARK: - Свойства
+    
+    var score: Int = 0
+    var currentSecretValue: Int = 0
+    
+    //MARK: - Инициализатор
+    
+    init(secretValue: Int) {
+        currentSecretValue = secretValue
+    }
+    
+    //MARK: -  Методы
+    
+    func calculateScore(with value: Int) {
+        (value == currentSecretValue) ? (score += 1) : (score += 0)
+    }
+}

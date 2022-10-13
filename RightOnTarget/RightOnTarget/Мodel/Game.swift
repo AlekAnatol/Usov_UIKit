@@ -13,8 +13,8 @@ protocol GameProtocol {
     //MARK: - Свойства
     
     var score: Int { get }
-    var currentRound: GameRound! { get }
-    var secretValueGenerator: Generator { get }
+    var currentRound: GameRoundProtocol! { get }
+    var secretValueGenerator: GeneratorProtocol { get }
     var isGameEnded: Bool { get }
     //MARK: -  Методы
     
@@ -40,11 +40,11 @@ class Game: GameProtocol {
     // Количество раундов
     private var lastRound: Int
     // Данные текущего раунда
-    var currentRound: GameRound!
+    var currentRound: GameRoundProtocol!
     // Данные всех раундов текущей игры
-    private var roundsArray: [GameRound] = []
+    private var roundsArray: [GameRoundProtocol] = []
     // Генератор случайных чисел
-    var secretValueGenerator: Generator
+    var secretValueGenerator: GeneratorProtocol
     // Проверяет, окончена ли игра
     var isGameEnded: Bool {
         if roundsArray.count == lastRound {

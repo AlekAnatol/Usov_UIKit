@@ -1,13 +1,13 @@
 //
-//  GameViewController.swift
+//  NumbersViewController.swift
 //  RightOnTarget
 //
-//  Created by Екатерина Алексеева on 29.09.2022.
+//  Created by Екатерина Алексеева on 06.10.2022.
 //
 
 import UIKit
 
-class GameViewController: UIViewController {
+class NumbersViewController: UIViewController {
     //MARK: - Свойства
     var gameSession: Game!
     
@@ -111,3 +111,4 @@ class GameViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 }
+
