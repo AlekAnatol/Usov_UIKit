@@ -14,8 +14,6 @@ class ChooseGameViewController: UIViewController {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 20))
         label.translatesAutoresizingMaskIntoConstraints = false
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
-        label.layer.borderColor = CGColor(red: 245, green: 0, blue: 10, alpha: 1)
-        label.layer.borderWidth = 2
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.text = "Выберите вариант игры"
         return label
